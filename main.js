@@ -38,8 +38,18 @@ function addClose(){
         closeList[i].addEventListener('click', deleteJob);
     }
 }
+// function deleteJob(e){
+//     job = e.target.parentElement.innerText;
+//     pos = todoList.indexOf(job);
+//     todoList.splice(pos,1);
+//     localStorage.setItem(storageKey, JSON.stringify(todoList));
+//     todoList = JSON.parse(localStorage.getItem(storageKey));
+//     render();
+//     addClose();
+// }
 function deleteJob(e){
     job = e.target.parentElement.innerText;
+    e.target.parentNode.remove();
     pos = todoList.indexOf(job);
     todoList.splice(pos,1);
     localStorage.setItem(storageKey, JSON.stringify(todoList));
@@ -47,4 +57,3 @@ function deleteJob(e){
     render();
     addClose();
 }
-
