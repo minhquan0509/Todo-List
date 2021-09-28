@@ -43,7 +43,7 @@ function deleteJob(e){
     pos = todoList.indexOf(job);
     todoList.splice(pos,1);
     localStorage.setItem(storageKey, JSON.stringify(todoList));
-    todoList = JSON.parse(localStorage.getItem(storageKey));
+    // todoList = JSON.parse(localStorage.getItem(storageKey));
     render();
     addClose();
 }
