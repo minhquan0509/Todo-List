@@ -35,7 +35,16 @@ addClose();
 function addClose(){
     var closeList = document.querySelectorAll('.close-btn');
     for(i = 0; i < closeList.length; i++){
-        closeList[i].addEventListener('click', deleteJob);
+        closeList[i].addEventListener('click', function(e){
+            this.parentNode.remove();
+            job = e.target.parentElement.innerText;
+            pos = todoList.indexOf(job);
+            todoList.splice(pos,1);
+            localStorage.setItem(storageKey, JSON.stringify(todoList));
+            todoList = JSON.parse(localStorage.getItem(storageKey));
+            render();
+            addClose();
+        });
     }
 }
 // function deleteJob(e){
@@ -49,7 +58,7 @@ function addClose(){
 // }
 function deleteJob(e){
     job = e.target.parentElement.innerText;
-    e.target.parentNode.remove();
+    // e.target.parentNode.remove();
     pos = todoList.indexOf(job);
     todoList.splice(pos,1);
     localStorage.setItem(storageKey, JSON.stringify(todoList));
