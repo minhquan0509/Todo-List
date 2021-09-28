@@ -25,26 +25,36 @@ btn.addEventListener('click', addJob);
 
 function render(){
     // list.innerHTML += `<li>${job}</li>`;
-    var content = todoList.map(function(job){
-        return `<li class="job-item"><span>${job}</span>`+`<i class ="ti-close close-btn"></i>`+`</li>`;
+    var html='';
+    todoList.forEach(function(job, index){
+        html += `<li class="job-item"><span>${job}</span>`+`<i class ="ti-close close-btn" onclick = "deleteJob(${index})"></i>`+`</li>`;
     })
-    list.innerHTML = content.join('');
+    // var content = todoList.map(function(job){
+    //     return `<li class="job-item"><span>${job}</span>`+`<i class ="ti-close close-btn"></i>`+`</li>`;
+    // })
+    list.innerHTML = html;
 }
 render();
-addClose();
-function addClose(){
-    var closeList = document.querySelectorAll('.close-btn');
-    for(i = 0; i < closeList.length; i++){
-        closeList[i].addEventListener('click', deleteJob);
-    }
-}
-function deleteJob(e){
-    job = e.target.parentElement.innerText;
-    pos = todoList.indexOf(job);
-    todoList.splice(pos,1);
+// addClose();
+// function addClose(){
+//     var closeList = document.querySelectorAll('.close-btn');
+//     for(i = 0; i < closeList.length; i++){
+//         closeList[i].addEventListener('click', deleteJob(i));
+//     }
+// }
+// function deleteJob(e){
+//     job = e.target.parentElement.innerText;
+//     pos = todoList.indexOf(job);
+//     todoList.splice(pos,1);
+//     localStorage.setItem(storageKey, JSON.stringify(todoList));
+//     // todoList = JSON.parse(localStorage.getItem(storageKey));
+//     render();
+//     addClose();
+// }
+function deleteJob(index){
+    todoList = localStorage.getItem(storageKey, JSON.parse(todoList));
+    todoList.splice(index,1);
     localStorage.setItem(storageKey, JSON.stringify(todoList));
     // todoList = JSON.parse(localStorage.getItem(storageKey));
     render();
-    addClose();
 }
-
