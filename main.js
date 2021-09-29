@@ -13,8 +13,8 @@ if (data){
 var job = '';
 
 function addJob(){
-    job = input.value
-    if(job === null){
+    job = input.value;
+    if(job === ''){
 
     } else{
         todoList.push(job);
