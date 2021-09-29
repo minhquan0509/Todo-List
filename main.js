@@ -14,13 +14,23 @@ var job = '';
 
 function addJob(){
     job = input.value
-    todoList.push(job);
-    render();
-    input.value = '';
-    localStorage.setItem(storageKey, JSON.stringify(todoList));
+    if(job === null){
+
+    } else{
+        todoList.push(job);
+        render();
+        input.value = '';
+        localStorage.setItem(storageKey, JSON.stringify(todoList));
+    }
     // addClose();
 }
-
+document.addEventListener('keypress', function(e){
+    switch(e.key){
+        case 'Enter':
+            addJob();
+            break;
+    }
+})
 btn.addEventListener('click', addJob);
 
 function render(){
@@ -31,22 +41,7 @@ function render(){
     list.innerHTML = content.join('');
 }
 render();
-// addClose();
-// function addClose(){
-//     var closeList = document.querySelectorAll('.close-btn');
-//     for(i = 0; i < closeList.length; i++){
-//         closeList[i].addEventListener('click', deleteJob(i));
-//     }
-// }
-// function deleteJob(e){
-//     job = e.target.parentElement.innerText;
-//     pos = todoList.indexOf(job);
-//     todoList.splice(pos,1);
-//     localStorage.setItem(storageKey, JSON.stringify(todoList));
-//     todoList = JSON.parse(localStorage.getItem(storageKey));
-//     render();
-//     addClose();
-// }
+
 function deleteJob(pos){
     job = todoList[pos];
     // e.target.parentNode.remove();
