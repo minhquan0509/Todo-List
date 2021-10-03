@@ -16,6 +16,7 @@ li{
     display: block;
 }
 #container{
+    position: relative;
     background-color: #fff;
     width: 500px;
     height: fit-content;
@@ -36,6 +37,35 @@ li{
     font-size: 20px;
     border-radius: 10px;
 
+}
+
+.btn{
+    margin: 0 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.save-btn{
+    position: absolute;
+    width: calc(50% - 30px);
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    background-color: #DEDEDE;
+}
+.save-btn:hover,
+.done-btn:hover{
+    cursor: pointer;
+}
+
+.done-btn{
+    position: absolute;
+    width: calc(50% - 30px);
+    bottom: 0;
+    left: 0;
+    margin-bottom: 20px;
+    background-color: #49BEB7;
 }
 
 .add-btn{
@@ -70,17 +100,16 @@ li{
     border-radius: 10px;
     
 }
-.job-item:hover > .close-btn{
+/* .job-item:hover > .close-btn{
     animation: slideInRight;
     animation-duration: 1s;
     display: inline-block;
-}
+} */
 .close-btn{
     font-size: 18px;
     margin-top: 12px;
     margin-bottom: 12px;
     margin-right: 20px;
-    display: none;
 
 }
 .add-btn:hover,
