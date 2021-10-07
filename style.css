@@ -95,31 +95,48 @@ li{
 }
 .job-item{
     display: flex;
-    justify-content: space-between;
-    padding-top: 5px;
+    /* justify-content: space-between; */
+    flex-wrap: nowrap;
+    /* padding-top: 5px; */
     padding-left: 10px;
     margin-bottom: 20px;
     background-color: #e0ebeb;
-    height: 50px;
+    height: fit-content;
     font-family: Poppins;
     font-size: 25px ;
     font-weight: 400;
     line-height: 1.6;
     border-radius: 10px;
+    overflow: hidden;
     
+}
+.job-done{
+    text-decoration: line-through;
+    color: #a3c2c2;
 }
 /* .job-item:hover > .close-btn{
     animation: slideInRight;
     animation-duration: 1s;
     display: inline-block;
 } */
+.job-name{
+    flex: 1;
+    padding-right: 10px;
+}
+.check-btn{
+    font-size: 18px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-right: 12px;
+}
 .close-btn{
     font-size: 18px;
     margin-top: 12px;
     margin-bottom: 12px;
-    margin-right: 20px;
+    margin-right: 15px;
 
 }
+.check-btn:hover,
 .add-btn:hover,
 .close-btn:hover{
     cursor: pointer;
@@ -135,5 +152,8 @@ li{
     .add-btn{
         margin: 0 20px;
         height: 50px;
+    }
+    .job-item{
+        width: 300px;
     }
 }
